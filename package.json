@@ -1,0 +1,12 @@
+{
+  "name": "estudos-poo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "tsx watch ./app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
