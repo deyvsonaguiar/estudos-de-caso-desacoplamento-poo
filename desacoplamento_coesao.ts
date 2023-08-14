@@ -1,13 +1,19 @@
 
+//criação de interface para quem precisar utilizar a classe e-mail
+export interface IEmail {
+  email: string
+
+  atualizarEmail(email: string): void
+}
 export class Funcionario {
   nome: string
   id: number
-  email: Email
+  email: IEmail
 
-  constructor(nome: string, id: number, email: string) {
+  constructor(nome: string, id: number, email: IEmail) {
     this.nome = nome
     this.id = id
-    this.email = new Email(email)
+    this.email = email
   }
 
   iniciarJornada() {
@@ -19,28 +25,28 @@ export class Funcionario {
   }
 }
 
-
-export class Email {
-  private _value: string
+//classe que implementa a interface IEmail 
+export class Email implements IEmail {
+  email: string
   
   constructor(email: string) {
-    this._value = email
+    this.email = email
   }
 
   getValue() {
-    return this._value
+    return this.email
   }
 
-  toString() {
-    return this._value
+  setValue(email: string) {
+    this.email = email
   }
 
-  atualizarEmail(novoEmail: string) {
+  atualizarEmail(novoEmail: string): void {
     this.validarEmail(novoEmail)
-    this._value = novoEmail
+    this.setValue(novoEmail)
   }
 
-  validarEmail(email: string) {
+  private validarEmail(email: string) {
     if(email.length === 0) throw new Error('E-mail não pode estar vazio')
     if(!email.includes('@')) throw new Error('E-mail inválido')
   }
