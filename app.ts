@@ -1,4 +1,5 @@
-import { Funcionario, Email } from './desacoplamento_coesao.js'
+import { Email } from "./Email"
+import { Funcionario } from "./Funcionario"
 
 const funcionario1 = new Funcionario('Deyvson Aguiar', 1, new Email('deyvsonaguiar@mail.com'))
 console.log(funcionario1)
